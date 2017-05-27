@@ -6,8 +6,8 @@
   "scripts": {
     "build": "webpack --progress --config config/webpack.js",
     "start": "node build/server.bundle.js",
-    "dev:server": "webpack --config config/webpack.server.js --watch",
-    "dev:client": "webpack --config config/webpack.client.js --watch"
+    "dev:server": "webpack --config config/webpack/webpack.server.js --watch",
+    "dev:client": "webpack --config config/webpack/webpack.client.js --watch"
   },
   "license": "MIT",
   "dependencies": {

@@ -16,6 +16,7 @@ const bloodyRender = (component) => {
     </head>
     <body ${helmet.bodyAttributes.toString()}>
       <div id="app">${markup}</div>
+      <h1>HI</h1>
       <script src="/public/app.bundle.js"></script>
     </body>
   </html>`

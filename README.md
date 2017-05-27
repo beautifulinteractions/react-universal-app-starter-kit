@@ -16,14 +16,30 @@ Inspired by the work of [Patrick Hund](https://github.com/pahund).
 ### Make it run
 
 ```
-$ npm install
-$ npm build
-$ npm start
+npm install
+npm run build
+npm start
 ```
+
 Check your browser at [localhost:3000](localhost:3000)
 
 ### Development 
+
+For local development, you run two watch jobs in parallel, one for
+rebuilding the client-side JavaScript code when client-side scripts are changed,
+and one for rebuilding the server-side JavaScript code when server-side scripts
+are changed.
+
+Run these two commands in two separate terminal windows or tabs – client:
+
 ```
-$ npm run dev:start
+npm run dev:client
 ```
+
+Server:
+
+```
+npm run dev:server
+```
+
 Check your browser at [localhost:3000](localhost:3000)
