@@ -1,11 +1,6 @@
 {
   "presets": [
-    [
-      "latest",
-      {
-        "modules": false
-      }
-    ],
-    "react"
+    "@babel/preset-env",
+    "@babel/preset-react"
   ]
 }

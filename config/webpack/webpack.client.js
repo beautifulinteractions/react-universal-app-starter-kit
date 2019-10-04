@@ -1,16 +1,15 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const srcPath = path.resolve(__dirname, '../..', 'src');
 const distPath = path.resolve(__dirname, '../..', 'build', 'public');
-
-const ExtractSASS = new ExtractTextPlugin('styles.bundle.css');
 
 module.exports = {
   context: srcPath,
   target: 'web',
   devtool: 'source-map',
-  entry: './app/index.jsx',
+  entry: './app/index.js',
+  mode: 'production',
   output: {
     path: distPath,
     filename: 'app.bundle.js',
@@ -23,24 +22,41 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)?$/,
         loader: 'babel-loader',
       },
       {
-        test: /\.(scss|sass|css)$/,
+        test: /\.(css|scss)$/,
         exclude: /node_modules/,
-        use: ExtractSASS.extract({
-          fallback: 'style-loader',
-          use: [{
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
             loader: 'css-loader',
-          }, {
+            options: {
+              importLoaders: 2,
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              config: {
+                path: './postcss.config.js',
+              },
+            },
+          },
+          {
             loader: 'sass-loader',
-          }],
-        }),
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
     ],
   },
   plugins: [
-    ExtractSASS,
+    new MiniCssExtractPlugin({ filename: 'styles.bundle.css' }),
   ],
 };

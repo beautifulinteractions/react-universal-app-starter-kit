@@ -4,8 +4,8 @@ import { StaticRouter as Router } from 'react-router';
 import sourceMapSupport from 'source-map-support';
 import config from '../../config/server.config';
 import App from '../app/App';
-import NoMatch from '../app/pages/404';
-import bloodyRender from './bloodyRender';
+import NoMatch from '../app/views/404';
+import bloodyRenderer from './bloodyRenderer';
 import matchUrl from './matchUrl';
 
 const app = express();
@@ -19,10 +19,10 @@ app.get('*', (req, res, next) => {
   const match = matchUrl(url);
 
   if (!match && url !== '/') {
-    return res.status(404).send(bloodyRender(<NoMatch />));
+    return res.status(404).send(bloodyRenderer(<NoMatch />));
   }
 
-  res.status(200).send(bloodyRender(
+  res.status(200).send(bloodyRenderer(
     <Router context={{}} location={req.url}>
       <App />
     </Router>,

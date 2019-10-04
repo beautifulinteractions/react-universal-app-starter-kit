@@ -1,4 +1,4 @@
-# React universal App starter kit 
+# React isomorphic App starter kit 
 ---
 ![Logo](./ReactUniversalApp.png)
 
@@ -9,8 +9,8 @@ Inspired by the work of [Patrick Hund](https://github.com/pahund).
 
 ### Featues
  - SEO Oriented, using [Helmet](https://github.com/nfl/react-helmet)
- - Dynamic Routes, using [React Router 4](https://reacttraining.com/react-router/)
- - Server-side rendering
+ - Dynamic Routes, using [React Router](https://reacttraining.com/react-router/)
+ - First page server-side rendered
  - ES6 
 
 ### Make it run

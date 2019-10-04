@@ -1,15 +1,13 @@
 import { Route, Switch } from 'react-router-dom';
 import React from 'react';
-
-// components
 import Header from './components/Header';
-import Home from './pages/Home';
-import About from './pages/About';
-import Nested from './pages/Nested';
-import NoMatch from './pages/404';
+import Home from './views/Home';
+import About from './views/About';
+import Nested from './views/Nested';
+import NoMatch from './views/404';
 
-// style
-import style from './styles/general.scss';
+// styles
+import './styles/general.scss';
 
 export default () => (
   <div className="app">
@@ -22,4 +20,3 @@ export default () => (
     </Switch>
   </div>
 );
-

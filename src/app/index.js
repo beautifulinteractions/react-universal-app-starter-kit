@@ -1,10 +1,12 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import { render } from 'react-dom';
 import React from 'react';
+import ReactDom from 'react-dom';
 import App from './App';
 
-render((
+const Index = () => (
   <Router>
     <App />
   </Router>
-), document.getElementById('app'));
+);
+
+ReactDom.render(<Index />, document.getElementById('root'));

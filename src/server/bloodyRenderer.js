@@ -1,8 +1,10 @@
 import { renderToString } from 'react-dom/server';
 import { Helmet } from 'react-helmet';
 
-
-const bloodyRender = (component) => {
+/**
+ * The following function renders a given React component and return into within a new HTML page
+ */
+const bloodyRenderer = (component) => {
   const markup = renderToString(component);
   const helmet = Helmet.renderStatic();
 
@@ -15,12 +17,11 @@ const bloodyRender = (component) => {
       ${helmet.link.toString()}
     </head>
     <body ${helmet.bodyAttributes.toString()}>
-      <div id="app">${markup}</div>
-      <h1>HI</h1>
+      <div id="root">${markup}</div>
       <script src="/public/app.bundle.js"></script>
     </body>
   </html>`
   );
 };
 
-export default bloodyRender;
+export default bloodyRenderer;
